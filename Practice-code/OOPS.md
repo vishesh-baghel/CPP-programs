@@ -16,7 +16,28 @@ Three ways of making objects
 
 const Person = function(firstName, birthYear) {
 this.firstName = firstName;
+this.birthYear = birthYear;
+
+this.calcAge = function() {
+
+<!-- console.log(2036 - this.birthYear); --> don't use this, because it deteriorates the performance
 
 }
+}
 
-new Person('vishesh', 1999);
+const vishesh = new Person('vishesh', 1999);
+
+const matilda = new Person('Matilda', 2018);
+
+Prototypes:
+
+Person.prototype.calcAge = function() {
+console.log(this.birthYear);
+}
+
+vishesh.calcAge();
+
+console.log(vishesh.**proto**);
+console.log(vishesh.**proto** === Person.prototype);
+
+console.log(Person.prototype.isPrototype(vishesh));
