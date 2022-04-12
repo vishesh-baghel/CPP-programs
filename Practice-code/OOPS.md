@@ -41,3 +41,21 @@ console.log(vishesh.**proto**);
 console.log(vishesh.**proto** === Person.prototype);
 
 console.log(Person.prototype.isPrototype(vishesh));
+
+console.log(vishesh.\***\*proto\*\***);
+Object.prototype (top of prototype chain)
+console.log(vishesh.proto.proto);
+
+console.log(Person.prototype.constructor);
+const arr = [2, 5, 6,7];
+console.log(arr.proto);
+
+console.log(arr.proto === Array.prototype);
+console.log(arr.proto.proto);
+
+Array.prototype.unique = function() {
+return [...new Set(this)];
+};
+
+console.log(arr.unique());
+const h1 = document.querySelector('h1');
