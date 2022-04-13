@@ -59,3 +59,68 @@ return [...new Set(this)];
 
 console.log(arr.unique());
 const h1 = document.querySelector('h1');
+
+Coding challenge 1
+const Car = function(make, speed) {
+this.make = make,
+this.speed = speed,
+}
+
+Car.prototype.accelerate = function() {
+this.speed += 10;
+console.log(`${this.make} is going at ${this.speed}km/h);
+}
+
+Car.prototype.brake = function() {
+this.speed -= 5;
+console.log(`${this.make} is going at ${this.speed}km/h);
+}
+
+const car1 = new Car('BMW', 200);
+const car2 = new Car('Mercedes', 100);
+
+car1.accelerate();
+car2.brake();
+
+ES6 classes in JS:
+
+const PersonCl = class {}
+class PersonCl {
+constructor(firstName, birthYear) {
+this.firstName = firstName;
+this.birthYear = birthYear;
+
+calcAge() {
+console.log(2022 - this.birthYear);
+}
+
+}
+}
+
+const jessica = new PersonCl('vishesh', 1999);
+
+vishesh.calcAge();
+
+PersonCl.prototype.greet = function() {
+console.log(`Hey ${this.firstName}`);
+}
+vishesh.greet();
+
+*classes are not hoisted
+*Classes are first-class citizen
+\*Classes are executed in strict mode
+
+Getters and Setters:
+
+const account = {
+owner = 'vishesh',
+movements = [200, 300, -199],
+
+get latest() {
+return this.movements.slice(-1).pop();
+}
+
+set latest(mov) {
+this.movements.push(mov);
+}
+}
