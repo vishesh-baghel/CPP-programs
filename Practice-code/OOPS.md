@@ -85,6 +85,7 @@ car2.brake();
 ES6 classes in JS:
 
 const PersonCl = class {}
+
 class PersonCl {
 constructor(firstName, birthYear) {
 this.firstName = firstName;
@@ -92,6 +93,15 @@ this.birthYear = birthYear;
 
 calcAge() {
 console.log(2022 - this.birthYear);
+}
+
+get age() {
+return 2022 - this.birthYear;
+}
+
+set fullName(name) {
+if (name.includes(' ')) this.fullName = name;
+else alert(`${name} is not a full name`);
 }
 
 }
@@ -124,3 +134,35 @@ set latest(mov) {
 this.movements.push(mov);
 }
 }
+
+Static methods:
+
+Person.hey = function() {
+console.log('hey');
+}
+
+object.create:
+
+const PersonProto = {
+calcAge() {
+console.log(2022 - this.birthYear);
+},
+
+init(firstName, birthYear) {
+this.firstName = firstName;
+this.birthYear = birthYear;
+}
+}
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+
+steven.calcAge();
+
+console.log(steven.proto === PersonProto)
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1999);
+sarah.calcAge();
