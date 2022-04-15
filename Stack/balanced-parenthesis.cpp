@@ -1,18 +1,38 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-bool isBalanced(string str) {
-  stack<int> st;
-  for (int i = 0; i < str.length(); i++) {
-    if (str[i] == '(' or str[i] == '{' or str[i] == '[') {
-      st.push(str[i]);
-    } else {
-      if (st.empty() == true) return false;
-      else if (st.find(str[i])) return false;
-      else st.pop();
+bool isbalanced(string s) {
+  stack<char> st;
+  char c;
+
+  for (int i = 0; i < s.length(); i++) {
+    if (s[i] == '(' or s[i] == '{' or s[i] == '{') {
+      st.push(s[i]);
+      continue;
+    }
+
+    if (st.empty()) return false;
+
+    switch(s[i]) {
+      case ')':
+          c = st.top();
+          st.pop();
+          if (c != '(') return false;
+          break;
+      case '}':
+          c = st.top();
+          st.pop();
+          if (c != '{') return false;
+          break;
+      case ']':
+          c = st.top();
+          st.pop();
+          if (c != ']') return false;
+          break;
     }
   }
-  return (st.empty() == true);
+
+  return (st.empty());
 }
 
 int main() {

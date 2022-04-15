@@ -166,3 +166,48 @@ console.log(steven.proto === PersonProto)
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1999);
 sarah.calcAge();
+
+Coding challenge:
+
+class CarCl {
+constructor(make, speed) {
+this.make = make;
+this.speed = speed;
+}
+
+accelerate() {
+this.speed += 10;
+}
+
+brake() {
+this.speed -= 5;
+}
+
+get speedUS {
+return this.speed / 1.6;
+}
+
+set speedUS(speed) {
+this.speed = speed \* 1.6;
+}
+
+}
+
+const ford = new CarCl('Ford', 130);
+ford.accelarate();
+ford.brake();
+console.log(ford.speedUS);
+
+Inheritance:
+
+const Student = function(firstName, birthYear, course) {
+this.firstName = firstName;
+this.birthYear = birthYear;
+this.course = course;
+}
+
+Student.prototype.introduce = function() {
+console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+
+const mike = new Student('Mike', 2022, 'CS');
