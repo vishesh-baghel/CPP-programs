@@ -211,3 +211,5 @@ console.log(`My name is ${this.firstName} and I study ${this.course}`);
 }
 
 const mike = new Student('Mike', 2022, 'CS');
+
+atleast I sat down to write this.
