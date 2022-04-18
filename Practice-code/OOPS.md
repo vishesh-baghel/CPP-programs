@@ -206,12 +206,15 @@ this.birthYear = birthYear;
 this.course = course;
 }
 
+Student.prototype = Object.create(Person.prototype);
+
 Student.prototype.introduce = function() {
 console.log(`My name is ${this.firstName} and I study ${this.course}`);
 }
 
 const mike = new Student('Mike', 2022, 'CS');
 
-atleast I sat down to write this.
+mike.calcAge();
 
-today also I wasted some time
+console.log(mike.proto.proto);
+console.dir(Student.prototype.constructor);
