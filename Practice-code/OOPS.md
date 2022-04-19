@@ -218,3 +218,5 @@ mike.calcAge();
 
 console.log(mike.proto.proto);
 console.dir(Student.prototype.constructor);
+
+Not much today
