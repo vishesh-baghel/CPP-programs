@@ -220,3 +220,4 @@ console.log(mike.proto.proto);
 console.dir(Student.prototype.constructor);
 
 Not much today
+I have to do something in the coming days
