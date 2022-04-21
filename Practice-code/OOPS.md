@@ -221,3 +221,36 @@ console.dir(Student.prototype.constructor);
 
 Not much today
 I have to do something in the coming days
+
+Coding challenge:
+
+const EV = function(make, speed, charge) {
+Car.call(this, make, speed);
+this.speed = speed;
+};
+EV.prototype = Object.create(Car.prototype);
+
+EV.prototype.chargeBattery = function(chargeTo) {
+this.charge = chargeTo;
+};
+
+EV.prototype.accelerate = function() {
+this.speed += 20;
+this.charge--;
+
+}
+const tesla = new EV('TEsla', 120, 23);
+tesla.chargeBattery(90);
+console.log(tesla);
+
+tesla.brake();
+tesla.accelerate();
+
+Inheritance between classes:
+
+class StudentCl extends PersonCl {
+constructor(fullName, birthYear, course) {
+super(fullName, birthYear);
+this.course = course;
+}
+}
