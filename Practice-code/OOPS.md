@@ -254,4 +254,78 @@ super(fullName, birthYear);
 this.course = course;
 }
 }
-Not anything today
+
+introduce() {
+console.log(`My name is ${this.fullName} and I study ${this.course}`);
+}
+
+const martha = new StudentCl('Martha Jones', 2022, 'CS');
+martha.introduce();
+
+Inheritance between classes with Object.create():
+
+const PersonProto = {
+calcAge() {
+console.log(2022 - this.birthYear);
+},
+
+init(firstName, birthYear) {
+this.firstName = firstName;
+this.birthYear = birthYear;
+},
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function(firstName, birthYear, course) {
+PersonProto.init.call(this, firstName, birthYear);
+this.course = course;
+};
+
+StudentProto.introduce = function() {
+console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2002, 'CS');
+jay.introduce();
+jay.calcAge();
+
+Another class example:
+
+class Account {
+constructor(owner, currency, pin) {
+this.owner = owner;
+this.currency = currency;
+this.pin = pin;
+this.movements = [];
+this.locale = navigator.language;
+
+console.log(`thanks for opening an account, ${owner}`);
+}
+
+deposit(val) {
+this.movement.push(val);
+}
+
+withdrawal(val) {
+this.deposit(-val);
+}
+
+approveLoan(val) {
+return true;
+}
+}
+
+const acc1 = new Account('vishesh', 'INR', 1111);
+
+<!-- acc1.movements.push(230);
+acc1.movements.push(-100); -->
+<!-- we can put an extra layer of abstraction to make it more good -->
+
+acc1.deposit(240);
+acc1.withdrawel(200);
+
+console.log(acc1);
