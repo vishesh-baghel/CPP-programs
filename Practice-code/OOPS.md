@@ -296,26 +296,54 @@ jay.calcAge();
 Another class example:
 
 class Account {
+
+  <!-- Public fields -->
+
+locale = navigator.language;
+
+<!-- Private fields -->
+
+#movements = [];
+#pin;
+
 constructor(owner, currency, pin) {
 this.owner = owner;
 this.currency = currency;
-this.pin = pin;
-this.movements = [];
-this.locale = navigator.language;
+this.#pin = pin;
+
+<!-- this.\_movements = [];
+this.locale = navigator.language; -->
 
 console.log(`thanks for opening an account, ${owner}`);
 }
 
+getMovements() {
+return this.\_movements;
+}
+
 deposit(val) {
-this.movement.push(val);
+this.\_movement.push(val);
+return this;
 }
 
 withdrawal(val) {
 this.deposit(-val);
+return this;
 }
 
-approveLoan(val) {
+requestLoan(val) {
+if (this.\_approveLoan(val)) {
+this.deposit(val);
+console.log(`Loan approved`);
+return this;
+}
+}
+
+<!-- Private methods -->
+
+\_approveLoan(val) {
 return true;
+return this;
 }
 }
 
@@ -327,5 +355,20 @@ acc1.movements.push(-100); -->
 
 acc1.deposit(240);
 acc1.withdrawel(200);
+acc1.requestLoan(1000);
+acc1.approveLoan(1000);
 
+console.log(acc1.getMovements());
 console.log(acc1);
+
+Encapsulation implementation using class fields:
+
+<!-- Public fields -->
+<!-- Private fields -->
+<!-- Public methods -->
+<!-- Private methods -->
+
+<!-- Chaining -->
+
+acc1.deposit(200).deposit(300).withdraw(200).requestLoan(200).withdraw(300);
+console.log(acc1.getMovements());
