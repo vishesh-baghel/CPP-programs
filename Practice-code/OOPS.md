@@ -372,3 +372,12 @@ Encapsulation implementation using class fields:
 
 acc1.deposit(200).deposit(300).withdraw(200).requestLoan(200).withdraw(300);
 console.log(acc1.getMovements());
+
+coding challenge:;
+
+class EVCL extends CarCl {
+constructor(make, speed, charge) {
+super(make, speed);
+this.charge = charge;
+}
+}
